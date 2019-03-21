@@ -54,8 +54,8 @@ class Carlist extends Component {
     }
 
     // Delete car
-    onDelClick = (link) => {
-        fetch(link, { method: 'DELETE' })
+    onDelClick = (car, link) => {
+        fetch( SERVER_URL + 'api/cars/' + car.id, { method: 'DELETE' })
             .then(res => {
                 this.setState({ open: true, message: 'Car deleted' });
                 this.fetchCars();
@@ -149,11 +149,16 @@ class Carlist extends Component {
             //Cell: this.renderEditable
         },
         {
+            Header: 'id',
+            accessor: 'id',
+            //Cell: this.renderEditable
+        },
+        {
             id: 'savebutton',
             sortable: false,
             filterable: false,
             width: 100,
-            accessor: '_links.self.href',
+            accessor: 'id',
             Cell: ({ value, row }) => (<Button size="small" variant="text"
                 color="primary"
                 onClick={() => { this.updateCar(row, value) }}>Save</Button>)
@@ -162,9 +167,9 @@ class Carlist extends Component {
             sortable: false,
             filterable: false,
             width: 100,
-            accessor: '_links.self.href',
-            Cell: ({ value }) => (<Button size="small" variant="text" color="secondary"
-                onClick={() => { this.confirmDelete(value) }}>Delete</Button>)
+            accessor: 'id',
+            Cell: ({ value, row  }) => (<Button size="small" variant="text" color="secondary"
+                onClick={() => { this.confirmDelete(row, value) }}>Delete</Button>)
         }]
 
         // Carlist.js render() method's return statement
