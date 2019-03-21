@@ -123,7 +123,11 @@ class Carlist extends Component {
     }
 
     render() {
-        const columns = [{
+        const columns = [
+          {
+              Header: 'ID',
+              accessor: 'id',
+          },{
             Header: 'Brand',
             accessor: 'brand',
             Cell: this.renderEditable
@@ -147,10 +151,6 @@ class Carlist extends Component {
             Header: 'Market $',
             accessor: 'marketEstimate',
         },
-        // {
-        //     Header: 'id',
-        //     accessor: 'id',
-        // },
         {
             id: 'savebutton',
             sortable: false,
