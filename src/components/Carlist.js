@@ -127,6 +127,7 @@ class Carlist extends Component {
           {
               Header: 'ID',
               accessor: 'id',
+              show: false
           },{
             Header: 'Brand',
             accessor: 'brand',
