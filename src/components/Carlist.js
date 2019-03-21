@@ -68,7 +68,7 @@ class Carlist extends Component {
 
     // Update car
     updateCar(car, link) {
-        fetch(link,
+        fetch(SERVER_URL + 'api/cars/' + car.id,
             {
                 method: 'PUT',
                 headers: {
