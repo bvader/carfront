@@ -7,8 +7,7 @@ class AddCar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            brand: '', model: '', year: '', color: '', price:
-                ''
+            brand: '', model: '', year: '', color: '', price: ''
         };
     }
 

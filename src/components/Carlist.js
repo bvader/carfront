@@ -19,9 +19,7 @@ class Carlist extends Component {
 
     // Add new car
     addCar(car) {
-        var transaction = apm.startTransaction("Add Car", "Car");
-        var httpSpan = transaction.startSpan('Add Car', 'Car')
-
+        apm.startTransaction("Add Car", "Car");
         apm.addTags(car);
 
         fetch(SERVER_URL + 'api/cars',
@@ -30,15 +28,13 @@ class Carlist extends Component {
                 headers: {
                     'Content-Type': 'application/json',
                 },
+
                 body: JSON.stringify(car)
             })
             .then(res => this.fetchCars())
             .catch(err => console.error(err))
-            
-        httpSpan.end()
-        transaction.end();    
     }
-    
+
     renderEditable = (cellInfo) => {
         return (
             <div
@@ -97,10 +93,14 @@ class Carlist extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
-                    cars: responseData._embedded.cars,
+                    //cars: responseData._embedded.cars,
+                    // Not HATEOUS, Simple Array of Objects with new REST implemenation
+                    cars: responseData
                 });
             })
             .catch(err => console.error(err));
+            // End the Tramsaction after the REST call returns
+            apm.getCurrentTransaction().end()
     }
 
     generateError() {
@@ -140,10 +140,15 @@ class Carlist extends Component {
             accessor: 'year',
             Cell: this.renderEditable
         }, {
-            Header: 'Price $',
+            Header: 'List $',
             accessor: 'price',
             Cell: this.renderEditable
         }, {
+            Header: 'Market $',
+            accessor: 'marketEstimate',
+            //Cell: this.renderEditable
+        },
+        {
             id: 'savebutton',
             sortable: false,
             filterable: false,

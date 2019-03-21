@@ -1,12 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is the frontend React application for the car database Spring Boot backend application. The backend Spring Boot application is at: https://github.com/adamquan/cardatabase
+This is the frontend React application for the car database Spring Boot backend application. The backend Spring Boot application is at: https://github.com/bvader/cardatabase and https://github.com/bvader/car-value-estimator
 
 Follow steps below to build and run the application. Make sure your backend Spring Boot cardatabase application is built and running.
 
 Clone the repository:
 
-`git clone https://github.com/adamquan/carfront.git`
+`git clone https://github.com/bvader/carfront.git`
 
 Install dependencies:
 
