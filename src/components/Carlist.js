@@ -146,13 +146,11 @@ class Carlist extends Component {
         }, {
             Header: 'Market $',
             accessor: 'marketEstimate',
-            //Cell: this.renderEditable
         },
-        {
-            Header: 'id',
-            accessor: 'id',
-            //Cell: this.renderEditable
-        },
+        // {
+        //     Header: 'id',
+        //     accessor: 'id',
+        // },
         {
             id: 'savebutton',
             sortable: false,
