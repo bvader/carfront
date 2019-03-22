@@ -54,7 +54,7 @@ class Carlist extends Component {
     }
 
     // Delete car
-    onDelClick = (car, link) => {
+    onDelClick = (car) => {
         fetch( SERVER_URL + 'api/cars/' + car.id, { method: 'DELETE' })
             .then(res => {
                 this.setState({ open: true, message: 'Car deleted' });
@@ -67,7 +67,7 @@ class Carlist extends Component {
     }
 
     // Update car
-    updateCar(car, link) {
+    updateCar(car) {
         fetch(SERVER_URL + 'api/cars/' + car.id,
             {
                 method: 'PUT',
@@ -108,13 +108,13 @@ class Carlist extends Component {
         throw err;
     }
 
-    confirmDelete = (link) => {
+    confirmDelete = (row) => {
         confirmAlert({
             message: 'Are you sure to delete?',
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: () => this.onDelClick(link)
+                    onClick: () => this.onDelClick(row)
                 },
                 {
                     label: 'No',
@@ -160,7 +160,7 @@ class Carlist extends Component {
             accessor: 'id',
             Cell: ({ value, row }) => (<Button size="small" variant="text"
                 color="primary"
-                onClick={() => { this.updateCar(row, value) }}>Save</Button>)
+                onClick={() => { this.updateCar(row) }}>Save</Button>)
         }, {
             id: 'delbutton',
             sortable: false,
@@ -168,7 +168,7 @@ class Carlist extends Component {
             width: 100,
             accessor: 'id',
             Cell: ({ value, row  }) => (<Button size="small" variant="text" color="secondary"
-                onClick={() => { this.confirmDelete(row, value) }}>Delete</Button>)
+                onClick={() => { this.confirmDelete(row) }}>Delete</Button>)
         }]
 
         // Carlist.js render() method's return statement
