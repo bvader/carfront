@@ -4,6 +4,22 @@ This is the frontend React application for the car database Spring Boot backend 
 
 Follow steps below to build and run the application. Make sure your backend Spring Boot cardatabase application is built and running.
 
+The defaults are all set up to run on `localhost`. If you want to run on other servers you will need to update
+
+`src/constants.js`
+
+`SERVER_URL` is the host of the backend `cardatabase` service
+
+ and `src/rum.js`
+
+ Set custom APM Server URL (default: http://localhost:8200)
+
+`serverUrl: 'http://localhost:8200',`
+
+For distributed tracing to different origin (CORS) for the cardatabase backend
+
+`distributedTracingOrigins: ['http://localhost:8080'],`
+
 Clone the repository:
 
 `git clone https://github.com/bvader/carfront.git`
@@ -33,6 +49,14 @@ To run the production build, follow these steps:
 `npm install -g serve`
 
 `serve -s build`
+
+## To Deploy to Cloud foundry
+
+`npm run build`
+
+`cd build`
+
+`cf push -b staticfile_buildpack cardatabase-front-end`
 
 ## Learn More
 
