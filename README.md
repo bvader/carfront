@@ -2,7 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is the frontend React application for the car database Spring Boot backend application. The backend Spring Boot application is at: https://github.com/bvader/cardatabase and https://github.com/bvader/car-value-estimator
 
-Follow steps below to build and run the application. Make sure your backend Spring Boot cardatabase application is built and running.
+Follow steps below to build and run the application. Make sure your backend Spring Boot cardatabase  and car-value-estimator applications are built and running.
+
+After it is up and running Add, Delete and Edit cars and you will see the traces in the Kibana APM Application.
 
 The defaults are all set up to run on `localhost`. If you want to run on other servers you will need to update
 
