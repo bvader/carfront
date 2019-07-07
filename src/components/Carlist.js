@@ -19,7 +19,7 @@ class Carlist extends Component {
 
     // Add new car
     addCar(car) {
-        apm.startTransaction("Add Car", "Car");
+        apm.startTransaction("Add Car", "Add Car");
         apm.addTags(car);
 
         fetch(SERVER_URL + 'api/cars',
