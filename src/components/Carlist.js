@@ -6,7 +6,7 @@ import 'react-table/react-table.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import AddCar from './AddCar.js';
-import { CSVLink } from 'react-csv';
+//import { CSVLink } from 'react-csv';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -19,7 +19,10 @@ class Carlist extends Component {
 
     // Add new car
     addCar(car) {
+        console.log("Before Start Transaction")
         apm.startTransaction("Add Car", "Add Car");
+        console.log("Before Add Car Start Transaction")
+        //apm.addLabels(car);
         apm.addTags(car);
 
         fetch(SERVER_URL + 'api/cars',
@@ -100,6 +103,7 @@ class Carlist extends Component {
             })
             .catch(err => console.error(err));
             // End the Tramsaction after the REST call returns
+            console.log("Before End Transaction")
             apm.getCurrentTransaction().end()
     }
 

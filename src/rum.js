@@ -1,6 +1,7 @@
 import { init as initApm } from 'elastic-apm-js-base'
+//import { init as initApm } from '@elastic/apm-rum'
 
-var apm = initApm({
+const apm = initApm({
   // Set required service name (allowed characters: a-z, A-Z, 0-9, -, _, and space)
   serviceName: 'car-front-end',
   // Set the version of your application
@@ -10,6 +11,7 @@ var apm = initApm({
   serverUrl: 'http://localhost:8200',
   // For distributed tracing to different origin (CORS)
   distributedTracingOrigins: ['http://localhost:8080'],
+  debug: true
 })
 
 export default apm;
