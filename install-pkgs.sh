@@ -11,5 +11,5 @@ npm install react-csv --save
 
 npm install @material-ui/core --save
 
-npm install elastic-apm-js-base --save
+npm install @elastic/apm-rum --save
 
