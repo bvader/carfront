@@ -18,11 +18,7 @@ class Carlist extends Component {
 
     // Add new car
     addCar(car) {
-        console.log("Before Start Transaction")
-
         // Create a custom transaction
-        var transaction = apm.startTransaction("Add Car", "Car");
-        apm.addLabels(car);
         /**
          * Start a managed custom transaction.
          * The RUM agent will automatically add the fetch request and 
