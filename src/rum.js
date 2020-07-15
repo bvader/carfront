@@ -1,4 +1,3 @@
-//import { init as initApm } from 'elastic-apm-js-base'
 import { init as initApm } from '@elastic/apm-rum'
 
 const apm = initApm({
@@ -11,6 +10,8 @@ const apm = initApm({
   serverUrl: 'http://localhost:8200',
   // For distributed tracing to different origin (CORS)
   distributedTracingOrigins: ['http://localhost:8080'],
+  // For breakdown metrics
+  breakdownMetrics: 'true',
   debug: true
 })
 
