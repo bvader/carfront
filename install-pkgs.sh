@@ -13,3 +13,5 @@ npm install @material-ui/core --save
 
 npm install @elastic/apm-rum --save
 
+npm install @elastic/apm-rum-react --save
+
